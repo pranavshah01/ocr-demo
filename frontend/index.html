@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Pipeline - Document Upload</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>OCR Pipeline</h1>
+            <p>Upload documents for OCR extraction and summarization</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <h3>Drag & Drop your document here</h3>
+                        <p>or click to browse</p>
+                        <p class="file-types">Supported: PDF, PNG, JPG, JPEG, DOCX, TIFF</p>
+                        <input type="file" id="fileInput" accept=".pdf,.png,.jpg,.jpeg,.docx,.tiff,.tif" multiple style="display: none;">
+                        <button type="button" class="upload-button" id="uploadButton">Choose File</button>
+                    </div>
+                </div>
+                <div class="upload-progress" id="uploadProgress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">Uploading...</p>
+                </div>
+            </section>
+
+            <!-- Document List Section -->
+            <section class="documents-section">
+                <h2>Documents</h2>
+                <div class="filter-controls">
+                    <select id="statusFilter">
+                        <option value="all">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="completed">Completed</option>
+                        <option value="failed">Failed</option>
+                    </select>
+                    <button id="refreshBtn" class="btn-secondary">Refresh</button>
+                </div>
+                <div class="documents-list" id="documentsList">
+                    <p class="loading">Loading documents...</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Document Detail Modal -->
+        <div class="modal" id="documentModal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h2 id="modalTitle">Document Details</h2>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/upload.js"></script>
+</body>
+</html>
+
