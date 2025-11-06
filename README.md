@@ -354,7 +354,7 @@ ocr/
 │   ├── api/          # FastAPI routes
 │   ├── database/     # Database models
 │   ├── services/     # Business logic
-│   ├── crew/         # CrewAI (defined, not used)
+│   ├── crew/         # CrewAI
 │   ├── utils/        # Utilities (logging)
 │   └── main.py       # Application entry point
 ├── uploads/          # Uploaded documents
